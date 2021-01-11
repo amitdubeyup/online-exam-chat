@@ -39,4 +39,4 @@ wss.on('connection', function connection(ws) {
   });
 });
 // Web Socket Connection End
-console.log('Chat server is running on ws://localhost:'+port);
+console.log('Text chat server is running on post: ' + port);
