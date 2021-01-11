@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
-
+const port = 6000;
 const config = require('./app/config');
 const chatController = require('./app/controllers/chat');
 
@@ -23,7 +23,7 @@ mongoose.set('useFindAndModify', false);
 // Web Socket Connection Start
 const WebSocket = require('ws');
 const wss = new WebSocket.Server({
-  port: 9000
+  port: port
 });
 wss.on('connection', function connection(ws) {
   ws.on('message', function incoming(data) {
@@ -39,4 +39,4 @@ wss.on('connection', function connection(ws) {
   });
 });
 // Web Socket Connection End
-console.log('Socket server is running on ws://localhost:9000');
+console.log('Chat server is running on ws://localhost:'+port);
